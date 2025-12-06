@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogar • EcoQuiz Angola</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== ESTILO DOS CARDS ===== */
+
+        .jogar-container {
+            padding: 5px 7%;
+        }
+
+        .jogar-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f6f32;
+            margin-bottom: 10px;
+        }
+
+        .jogar-subtitle {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 22px rgba(0,0,0,0.15);
+        }
+
+        .card span.emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0d5e2c;
+        }
+
+        @media (max-width: 600px) {
+            .jogar-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="navbar">
+    <div class="logo">
+        <span class="logo-icon">🌍</span>
+        <div class="logo-text">
+            <h1>EcoQuiz Angola</h1>
+            <p>Educação Ambiental Interativa</p>
+        </div>
+    </div>
+
+    <!-- Botão hamburguer -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="menu" id="menu">
+        <a href="index.html"><span>🏠</span> Home</a>
+        <a href="jogar.html" class="active"><span class="icon-jogar">🎮</span>Jogar</a>
+        <a href="aprender.html"><span>📚</span> Aprender</a>
+        <a href="eco-dicionário.html"><span>📖</span> Eco-Dicionário</a>
+        <a href="#"><span>👥</span> Sobre Nós</a>
+        <a href="#" class="btn-apoio"><span>💚</span> Apoie o Projecto</a>
+    </nav>
+
+</header>
+
+<!-- ===== CONTEÚDO PRINCIPAL ===== -->
+<div class="jogar-container">
+<div class="jogar-header">
+    <div class="jogar-icon">🎮</div>
+    <h1 class="jogar-title">Jogar</h1>
+    <p class="jogar-subtitle">Escolhe um módulo e testa os teus conhecimentos ambientais!</p>
+</div>
+
+
+
+    <div class="cards-grid">
+
+        <div class="card" onclick="location.href='quiz-modulo1.html'">
+            <span class="emoji">📘</span>
+            <div class="card-title">Módulo 1 — Fundamentos</div>
+        </div>
+
+        <div class="card" onclick="location.href='quiz-modulo2.html'">
+            <span class="emoji">🌍</span>
+            <div class="card-title">Módulo 2 — Componentes do Ambiente</div>
+        </div>
+
+        <div class="card" onclick="location.href='quiz-modulo3.html'">
+            <span class="emoji">⚠️</span>
+            <div class="card-title">Módulo 3 — Problemas Ambientais</div>
+        </div>
+
+        <div class="card" onclick="location.href='quiz-modulo4.html'">
+            <span class="emoji">🌿</span>
+            <div class="card-title">Módulo 4 — Ecologia & Sustentabilidade</div>
+        </div>
+
+        <div class="card" onclick="location.href='quiz-modulo5.html'">
+            <span class="emoji">🛠️</span>
+            <div class="card-title">Módulo 5 — Gestão Ambiental</div>
+        </div>
+
+        <div class="card" onclick="location.href='quiz-modulo6.html'">
+            <span class="emoji">🌱</span>
+            <div class="card-title">Módulo 6 — Educação Ambiental Prática</div>
+        </div>
+
+        <div class="card" onclick="location.href='quiz-modulo7.html'">
+            <span class="emoji">🌍</span>
+            <div class="card-title">Módulo 7 — Temas Avançados</div>
+        </div>
+
+        <!-- SUBSTITUINDO ECO-DICIONÁRIO -->
+        <div class="card" onclick="location.href='forca.html'">
+            <span class="emoji">🔤</span>
+            <div class="card-title">Jogo da Forca</div>
+        </div>
+
+    </div>
+</div>
+<div id="ecoChat">
+    <button id="chatToggle" title="Abrir EcoBot">🤖</button>
+
+    <div id="chatWindow">
+        <div id="chatHeader">
+            <strong>🌱 EcoBot</strong>
+            <div>
+                <button id="clearChat" title="Limpar conversa">🧹</button>
+                <button id="closeChat" title="Fechar">✖</button>
+            </div>
+        </div>
+
+        <div id="chatMessages">
+            <div class="bubble botMsg">
+                <b>EcoBot:</b> Olá 👋! Sou o <i>EcoBot</i>, o teu assistente ambiental.
+            </div>
+        </div>
+
+        <div id="chatInputArea">
+            <input id="userMessage" placeholder="Escreve a tua pergunta..." />
+            <button id="sendMessage">➤</button>
+        </div>
+    </div>
+</div>
+<!-- ===== ECOBOT ===== -->
+<script src="ecobot-db.js"></script>
+<script src="menu.js"></script>
+</body>
+</html>

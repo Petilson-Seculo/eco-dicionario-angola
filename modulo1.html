@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Módulo 1 — Fundamentos da Educação Ambiental</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- ESTILO BASE (podes mover para teu style.css) --- */
+
+        .modulo-container {
+            display: flex;
+            gap: 28px;
+            padding: 40px 7%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #f4fdf5;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 6px solid #16a34a;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 12px;
+            color: #14532d;
+        }
+
+        #lista-aulas li {
+            list-style: none;
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+
+        #lista-aulas li:hover {
+            background: #e3ffe9;
+        }
+
+        #lista-aulas li.active {
+            background: #16a34a;
+            color: white;
+            border-color: #0f7a37;
+        }
+
+        /* Conteúdo */
+        .conteudo {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+        }
+
+        .conteudo h2 {
+            margin-bottom: 20px;
+            color: #064e3b;
+        }
+
+        .conteudo p, .conteudo ul, .conteudo ol {
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        /* Navegação */
+        .navegacao-aulas {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .navegacao-aulas button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #btn-anterior, #btn-proxima {
+            background: #16a34a;
+            color: white;
+        }
+
+        #btn-anterior:hover, #btn-proxima:hover {
+            background: #0f7a37;
+        }
+
+        #btn-modulos {
+	    color: white;
+            background: #3b82f6;
+        }
+
+        #btn-modulos:hover {
+            background: #d1d5db;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .modulo-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <span class="logo-icon">🌍</span>
+        <div class="logo-text">
+            <h1>EcoQuiz Angola</h1>
+            <p>Educação Ambiental Interativa</p>
+        </div>
+    </div>
+
+    <!-- Botão hamburguer -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="menu" id="menu">
+        <a href="index.html"><span>🏠</span> Home</a>
+        <a href="jogar.html"><span class="icon-jogar">🎮</span>Jogar</a>
+        <a href="aprender.html" class="active"><span>📚</span> Aprender</a>
+        <a href="eco-dicionário.html"><span>📖</span> Eco-Dicionário</a>
+        <a href="#"><span>👥</span> Sobre Nós</a>
+        <a href="#" class="btn-apoio"><span>💚</span> Apoie o Projecto</a>
+    </nav>
+
+</header>
+
+<section class="modulo-container">
+
+    <!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <h3 class="sidebar-title">Módulo 1 — Aulas</h3>
+
+    <ul id="lista-aulas" class="sidebar-content">
+        <li data-aula="1" class="active">Aula 1 — O que é Meio Ambiente</li>
+        <li data-aula="2">Aula 2 — O que é Educação Ambiental</li>
+        <li data-aula="3">Aula 3 — Desenvolvimento Sustentável</li>
+        <li data-aula="4">Aula 4 — Conceitos Básicos de Ecologia</li>
+        <li data-aula="5">Aula 5 — Relação Ser Humano – Natureza</li>
+        <li data-aula="6">Aula 6 — Problemas Ambientais</li>
+        <li data-aula="7">Aula 7 — Princípios da Sustentabilidade</li>
+        <li data-aula="8">Aula 8 — Consumo Consciente</li>
+        <li data-aula="9">Aula 9 — Os 3R/5R da Sustentabilidade</li>
+        <li data-aula="10">Aula 10 — Ética Ambiental</li>
+    </ul>
+</aside>
+
+
+    <!-- Conteúdo -->
+    <main class="conteudo">
+        <h2 id="titulo-aula"></h2>
+        <div id="texto-aula"></div>
+
+        <div class="navegacao-aulas">
+            <button id="btn-anterior">◀ Aula Anterior</button>
+            <button id="btn-modulos" onclick="window.location.href='aprender.html'">Ver Módulos</button>
+            <button id="btn-proxima">Próxima Aula ▶</button>
+        </div>
+    </main>
+
+</section>
+
+<footer>
+    <!-- FOOTER -->
+</footer>
+<div id="ecoChat">
+    <button id="chatToggle" title="Abrir EcoBot">🤖</button>
+
+    <div id="chatWindow">
+        <div id="chatHeader">
+            <strong>🌱 EcoBot</strong>
+            <div>
+                <button id="clearChat" title="Limpar conversa">🧹</button>
+                <button id="closeChat" title="Fechar">✖</button>
+            </div>
+        </div>
+
+        <div id="chatMessages">
+            <div class="bubble botMsg">
+                <b>EcoBot:</b> Olá 👋! Sou o <i>EcoBot</i>, o teu assistente ambiental.
+            </div>
+        </div>
+
+        <div id="chatInputArea">
+            <input id="userMessage" placeholder="Escreve a tua pergunta..." />
+            <button id="sendMessage">➤</button>
+        </div>
+    </div>
+</div>
+
+<!-- Importa o JS com todo o conteúdo -->
+<script src="modulo1.js"></script>
+<script src="ecobot-db.js"></script>
+<script>
+    /* ------ SISTEMA DINÂMICO DE AULAS ------ */
+    let aulaAtual = 1;
+
+    function carregarAula(numero) {
+        aulaAtual = numero;
+
+        // Atualiza conteúdo
+        document.getElementById("titulo-aula").innerHTML = modulo1.aulas[numero].titulo;
+        document.getElementById("texto-aula").innerHTML = modulo1.aulas[numero].texto;
+
+        // Atualiza sidebar
+        document.querySelectorAll("#lista-aulas li")
+            .forEach(li => li.classList.remove("active"));
+
+        document.querySelector(`#lista-aulas li[data-aula='${numero}']`)
+            .classList.add("active");
+    }
+
+    // Clique na sidebar
+    document.querySelectorAll("#lista-aulas li").forEach(li => {
+        li.addEventListener("click", () => {
+            carregarAula(parseInt(li.dataset.aula));
+        });
+    });
+
+    // Botões de navegação
+    document.getElementById("btn-anterior").onclick = () => {
+        if (aulaAtual > 1) carregarAula(aulaAtual - 1);
+    };
+    document.getElementById("btn-proxima").onclick = () => {
+        if (aulaAtual < 10) carregarAula(aulaAtual + 1);
+    };
+
+    // Carrega aula inicial
+    carregarAula(1);
+
+</script>
+
+<script>
+/* ---- Sidebar deslizante ---- */
+const sidebar = document.getElementById("sidebar");
+const toggleSidebar = document.getElementById("toggleSidebar");
+
+toggleSidebar.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+});
+</script>
+
+<script>
+/* --- Menu--- */
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
+});
+
+
+</script>
+</body>
+</html>
