@@ -949,3 +949,248 @@ const ecoTerms = [
 { t: "Serviços de Utilidade Pública (Ambientais)", d: "Serviços essenciais fornecidos à população, como abastecimento de água, saneamento, coleta de resíduos e energia elétrica." },
 
 ];
+
+
+/* ======================================================
+   ECO-DICIONÁRIO — BASE DE DADOS (200+ TERMOS)
+====================================================== */
+/* ======================================================
+   GERAR LETRAS DO FILTRO  — versão corrigida
+====================================================== */
+const letters = document.getElementById("letterFilter");
+const list = document.getElementById("dicList");
+const searchInput = document.getElementById("searchInput");
+
+// cria botão "Todos" só se não existir
+if (!letters.querySelector('button[data-letter="all"]')) {
+  const allBtn = document.createElement("button");
+  allBtn.type = "button";
+  allBtn.dataset.letter = "all";
+  allBtn.className = "active";
+  allBtn.textContent = "Todos";
+  allBtn.setAttribute('aria-pressed', 'true');
+  letters.appendChild(allBtn);
+}
+
+// gerar A-Z (não duplica "Todos")
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+alphabet.forEach(letter => {
+  // evita adicionar botão se já existir (por exemplo em re-render)
+  if (letters.querySelector(`button[data-letter="${letter}"]`)) return;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.dataset.letter = letter;
+  btn.textContent = letter;
+  btn.setAttribute('aria-pressed', 'false');
+  letters.appendChild(btn);
+});
+
+/* ======================================================
+   HELPERS / RENDER
+====================================================== */
+function stripDiacritics(str) {
+  return String(str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function escapeRegExp(string) {
+  return String(string).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function createHighlightedNode(text, query) {
+  if (!query) return document.createTextNode(text);
+  const lcText = stripDiacritics(text).toLowerCase();
+  const qlen = query.length;
+  const frag = document.createDocumentFragment();
+  let lastIndex = 0;
+  let idx = lcText.indexOf(query, lastIndex);
+  while (idx !== -1) {
+    if (idx > lastIndex) {
+      frag.appendChild(document.createTextNode(text.slice(lastIndex, idx)));
+    }
+    const origSub = text.slice(idx, idx + qlen);
+    const span = document.createElement("span");
+    span.className = "highlight";
+    span.textContent = origSub;
+    frag.appendChild(span);
+    lastIndex = idx + qlen;
+    idx = lcText.indexOf(query, lastIndex);
+  }
+  if (lastIndex < text.length) {
+    frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+  }
+  return frag;
+}
+
+function renderList(filterText = "", filterLetter = "all") {
+  list.innerHTML = "";
+  const query = String(filterText || "").trim().toLowerCase();
+  const queryNorm = stripDiacritics(query);
+
+  // ordena cópia do array (não altera ecoTerms original)
+  const sorted = ecoTerms.slice().sort((a, b) =>
+    a.t.localeCompare(b.t, 'pt', { sensitivity: 'base' })
+  );
+
+  sorted.forEach(item => {
+    const firstChar = stripDiacritics(item.t[0] || '').toUpperCase();
+    if (filterLetter !== "all" && firstChar !== filterLetter) return;
+
+    const titleNorm = stripDiacritics(item.t).toLowerCase();
+    if (queryNorm && !titleNorm.includes(queryNorm)) return;
+
+    const div = document.createElement("div");
+    div.className = "term";
+
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "term-title";
+    titleDiv.appendChild(createHighlightedNode(item.t, queryNorm));
+
+    const descDiv = document.createElement("div");
+    descDiv.className = "term-desc";
+    descDiv.textContent = item.d;
+
+    div.appendChild(titleDiv);
+    div.appendChild(descDiv);
+    list.appendChild(div);
+  });
+
+  if (!list.hasChildNodes()) {
+    const empty = document.createElement('div');
+    empty.className = 'term';
+    empty.innerHTML = '<div class="term-title">Nenhum termo encontrado</div><div class="term-desc">Tenta outra palavra ou seleciona "Todos".</div>';
+    list.appendChild(empty);
+  }
+
+/* ======================================================
+     🔥 AQUI — scroll para o topo após cada filtro/pesquisa
+  ====================================================== */
+
+  const wrapper = document.getElementById("dicListWrapper");
+  if (wrapper) wrapper.scrollTop = 0;
+}
+
+/* ======================================================
+   DEBOUNCE (corrigido) e EVENTOS
+====================================================== */
+function debounce(fn, wait = 200) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), wait);
+  };
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", debounce(() => {
+    const activeBtn = letters.querySelector(".active");
+    const activeLetter = activeBtn ? activeBtn.dataset.letter : "all";
+    renderList(searchInput.value, activeLetter);
+  }, 180));
+}
+
+/* filtro por letras (delegation) */
+letters.addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (!btn || !btn.dataset.letter) return;
+
+  // atualizar estados visuais e aria
+  letters.querySelectorAll("button").forEach(b => {
+    b.classList.remove("active");
+    b.setAttribute('aria-pressed', 'false');
+  });
+
+  btn.classList.add("active");
+  btn.setAttribute('aria-pressed', 'true');
+
+  const activeLetter = btn.dataset.letter;
+  const queryText = searchInput ? searchInput.value : "";
+  renderList(queryText, activeLetter);
+});
+
+/* ==================================================================
+   Mostrar todos ao carregar
+================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  renderList("", "all");
+});
+
+
+const filterBtn = document.querySelector(".search-filter-btn");
+const dropdown = document.getElementById("dropdownLetters");
+
+/* Abrir/fechar dropdown */
+filterBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isVisible = dropdown.style.display === "block";
+    dropdown.style.display = isVisible ? "none" : "block";
+    filterBtn.textContent = isVisible ? "Filtrar ▾" : "Filtrar ▴";
+});
+
+/* filtro por letras no DROPDOWN MOBILE */
+dropdown.addEventListener("click", e => {
+    const btn = e.target.closest("button");
+    if (!btn || !btn.dataset.letter) return;
+
+    const letter = btn.dataset.letter;
+    const queryText = searchInput ? searchInput.value : "";
+
+    // aplica o filtro
+    renderList(queryText, letter);
+
+    // ajustar estado visual do desktop
+    letters.querySelectorAll("button").forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute('aria-pressed', 'false');
+    });
+
+    const matchingDesktopBtn = letters.querySelector(`button[data-letter="${letter}"]`);
+    if (matchingDesktopBtn) {
+        matchingDesktopBtn.classList.add("active");
+        matchingDesktopBtn.setAttribute('aria-pressed', 'true');
+    }
+
+    // fechar dropdown automaticamente
+    dropdown.style.display = "none";
+    filterBtn.textContent = "Filtrar ▾";
+});
+
+
+/* Fechar ao clicar fora */
+document.addEventListener("click", () => {
+    dropdown.style.display = "none";
+    filterBtn.textContent = "Filtrar ▾";
+});
+
+
+(function(){
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const storageKey = 'eco_theme';
+
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      root.setAttribute('data-theme','dark');
+      toggle.checked = true;
+    } else {
+      root.removeAttribute('data-theme');
+      toggle.checked = false;
+    }
+  }
+
+  // carregar preferência salva OU preferencia do sistema
+  const saved = localStorage.getItem(storageKey);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if(saved === 'dark' || (!saved && prefersDark)){
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
+
+  // quando clicar
+  toggle.addEventListener('change', ()=>{
+    const theme = toggle.checked ? 'dark' : 'light';
+    applyTheme(theme);
+    localStorage.setItem(storageKey, theme);
+  });
+})();
