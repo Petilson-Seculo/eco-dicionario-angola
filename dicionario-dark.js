@@ -33,3 +33,43 @@
     });
   }
 })();
+
+
+(function(){
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+
+  const saved = localStorage.getItem('eco_theme'); 
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      root.setAttribute('data-theme', 'dark');
+
+      // 🔥 Atualizar switch visualmente
+      if (toggle) toggle.checked = true;
+
+    } else {
+      root.removeAttribute('data-theme');
+
+      // 🔥 Atualizar switch visualmente
+      if (toggle) toggle.checked = false;
+    }
+  }
+
+  // Inicialização — aplica o tema guardado
+  if(saved === 'dark' || (!saved && prefersDark)){
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
+
+  // Evento de clique do switch
+  if(toggle){
+    toggle.addEventListener('change', () => {
+      const newTheme = toggle.checked ? 'dark' : 'light';
+      applyTheme(newTheme);
+      localStorage.setItem('eco_theme', newTheme);
+    });
+  }
+})();

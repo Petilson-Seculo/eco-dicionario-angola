@@ -1162,35 +1162,3 @@ document.addEventListener("click", () => {
 });
 
 
-(function(){
-  const root = document.documentElement;
-  const toggle = document.getElementById('themeToggle');
-  const storageKey = 'eco_theme';
-
-  function applyTheme(theme){
-    if(theme === 'dark'){
-      root.setAttribute('data-theme','dark');
-      toggle.checked = true;
-    } else {
-      root.removeAttribute('data-theme');
-      toggle.checked = false;
-    }
-  }
-
-  // carregar preferência salva OU preferencia do sistema
-  const saved = localStorage.getItem(storageKey);
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if(saved === 'dark' || (!saved && prefersDark)){
-    applyTheme('dark');
-  } else {
-    applyTheme('light');
-  }
-
-  // quando clicar
-  toggle.addEventListener('change', ()=>{
-    const theme = toggle.checked ? 'dark' : 'light';
-    applyTheme(theme);
-    localStorage.setItem(storageKey, theme);
-  });
-})();

@@ -238,16 +238,9 @@
 </div>
 
 <script src="ecobot-db.js"></script>
+<script src="menu.js"></script>
 <script src="eco-dicionario-data.js"></script>
-<script>
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
-
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    menu.classList.toggle("active");
-});
-</script>
+<script src="dicionario-dark.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js");
