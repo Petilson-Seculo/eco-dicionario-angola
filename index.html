@@ -35,8 +35,8 @@
         <a href="jogar.html"><span class="icon-jogar">🎮</span>Jogar</a>
         <a href="aprender.html"><span>📚</span> Aprender</a>
         <a href="eco-dicionário.html"><span>📖</span> Eco-Dicionário</a>
-        <a href="#"><span>👥</span> Sobre Nós</a>
-        <a href="#" class="btn-apoio"><span>💚</span> Apoie o Projecto</a>
+        <a href="#" onclick="showMaintenanceMessage(); return false;"><span>👥</span> Sobre Nós</a>
+        <a href="https://wa.me/+244925430567" class="btn-apoio"><span>💚</span> Apoie o Projecto</a>
 <label class="mini-switch" id="themeSwitch" title="Ativar/Desativar modo escuro">
     <input type="checkbox" id="themeToggle" aria-label="Alternar tema">
     <span class="switch-track">
@@ -67,14 +67,13 @@
         <p>
             O EcoQuiz Angola nasceu da necessidade urgente de educar a população angolana,
             principalmente os mais jovens, sobre questões ambientais de forma divertida e interativa.
-            Criado pelo estudante de Engenharia Ambiental, Petilson Seculo e sua equipa de educadores
-            e desenvolvedores apaixonados pelo meio ambiente.
+            Criado pelo estudante de Engenharia Ambiental, <a href="https://www.facebook.com/petilsonseculo" target="_blank"><strong>Petilson Seculo</strong></a> , conciliando a sua paixão pela tecnologia e pelo meio ambiente.
         </p>
 
         <p>
-            Através de quizzes educativos sobre reciclagem, ecossistemas, conservação da água,
-            energia renovável e mudanças climáticas, tornamos a aprendizagem ambiental acessível
-            e envolvente para todos os angolanos.
+            Através de quizzes educativos sobre fundamentos da educação ambiental, reciclagem, ecossistemas, conservação da água,
+            energia renovável e mudanças climáticas, problemas ambientais actuais e muito mais, tornamos a aprendizagem ambiental acessível
+            e envolvente para todos.
         </p>
     </div>
 
@@ -127,6 +126,45 @@
     </div>
 </section>
 
+<!-- Nossos Números --> 
+<section id="nossos-numeros" class="nossos-numeros-section">
+  <div class="nossos-container">
+    <div class="nossos-header">
+      <h2>Nossos Números</h2>
+      <p>Resultados que falam por si</p>
+    </div>
+    
+    <div class="nossos-grid">
+      <div class="nossos-card">
+        <div class="nossos-num green">
+          <span class="counter" data-target="100">0</span><span>+</span>
+        </div>
+        <div class="nossos-label">Perguntas Educativas</div>
+      </div>
+
+      <div class="nossos-card">
+        <div class="nossos-num blue">
+          <span class="counter" data-target="7">0</span>
+        </div>
+        <div class="nossos-label">Temas Ambientais</div>
+      </div>
+
+      <div class="nossos-card">
+        <div class="nossos-num yellow">
+          <span class="counter" data-target="3">0</span>
+        </div>
+        <div class="nossos-label">Níveis de Dificuldade</div>
+      </div>
+
+      <div class="nossos-card">
+        <div class="nossos-num purple">
+          <span class="counter" data-target="1000">0</span><span>+</span>
+        </div>
+        <div class="nossos-label">Utilizadores Educados</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- CALL TO ACTION -->
@@ -187,7 +225,7 @@
     <h4>Contacto</h4>
     <ul>
         <li>
-            📧 <a href="mailto:info@ecoquizangola.ao">info@ecoquizangola.ao</a>
+            📧 <a href="mailto:petilsonseculo8@gmail.com ">petilsonseculo8@gmail.com </a>
         </li>
         <li>
             📞 <a href="tel:+244925430567">+244 925 430 567</a>
@@ -230,6 +268,14 @@
             <input id="userMessage" placeholder="Escreve a tua pergunta..." />
             <button id="sendMessage">➤</button>
         </div>
+    </div>
+</div>
+<!-- Popup de Manutenção -->
+<div id="maintenancePopup" class="popup-overlay">
+    <div class="popup-box">
+        <h2>🚧 Em Manutenção</h2>
+        <p>Esta seção encontra-se em manutenção.<br><strong>Voltaremos com novidades em breve!</strong></p>
+        <button id="popupClose">OK</button>
     </div>
 </div>
 
@@ -388,10 +434,46 @@ send.onclick = async () => {
         thinking.innerHTML = `<b>EcoBot:</b> ${await getMockResponse(text)}`;
     }
 };
+
+function animateCounter(counter) {
+  const target = +counter.getAttribute("data-target");
+  const duration = 2000; // ms
+  const step = target / (duration / 30);
+
+  let current = 0;
+  const update = () => {
+    current += step;
+    if (current < target) {
+      counter.innerText = Math.floor(current);
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  update();
+}
+
+// ativa só quando a secção entra no viewport
+const counters = document.querySelectorAll(".counter");
+const observer = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target); // anima só uma vez
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+counters.forEach(counter => observer.observe(counter));
+
 </script>
 
 <script src="menu.js"></script>
 <script src="dicionario-dark.js"></script>
+<script src="manutenção.js"></script>
 
 </body>
 </html>

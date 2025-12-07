@@ -1886,3 +1886,175 @@ input.search-input::placeholder{
     color: #ffffff !important;
 }
 
+/* ================================
+      POPUP DE MANUTENÇÃO
+================================ */
+
+.popup-overlay {
+    display: none; /* começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.popup-box {
+    background: #ffffff;
+    padding: 28px 32px;
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.25);
+}
+
+.popup-box h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #0c7426;
+}
+
+.popup-box p {
+    color: #333;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+}
+
+#popupClose {
+    padding: 10px 22px;
+    background: #0c7426;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+#popupClose:hover {
+    background: #0a5c20;
+}
+
+/* DARK MODE DO POPUP */
+[data-theme="dark"] .popup-box {
+    background: #101820;
+    color: #fff;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+}
+
+[data-theme="dark"] .popup-box h2 {
+    color: #2dd4bf;
+}
+
+[data-theme="dark"] #popupClose {
+    background: #16a34a;
+}
+[data-theme="dark"] .popup-box p {
+    color: white;
+}
+
+.footer-col a {
+color: white;
+}
+.footer-col a:hover {
+    color: #0000EE !important;
+}
+
+/* ============================
+       NOSSOS NÚMEROS
+===============================*/
+
+.nossos-numeros-section {
+    padding: 70px 0;
+    background: #ffffff;
+}
+
+.nossos-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.nossos-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.nossos-header h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0c7426;
+}
+
+.nossos-header p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* GRID */
+.nossos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+}
+
+.nossos-card {
+    background: #fafafa;
+    padding: 25px 15px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: 0.25s ease;
+}
+
+.nossos-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* NÚMEROS */
+.nossos-num {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.green { color: #16a34a; }
+.blue { color: #0ea5e9; }
+.yellow { color: #eab308; }
+.purple { color: #8b5cf6; }
+
+.nossos-label {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ============================
+       DARK MODE
+===============================*/
+
+[data-theme="dark"] .nossos-numeros-section {
+    background: #0e151a;
+}
+
+[data-theme="dark"] .nossos-card {
+    background: #1b242b;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .nossos-header h2 {
+    color: #4ade80;
+}
+
+[data-theme="dark"] .nossos-header p,
+[data-theme="dark"] .nossos-label {
+    color: #d4d4d4;
+}

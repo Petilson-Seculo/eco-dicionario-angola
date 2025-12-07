@@ -35,8 +35,8 @@
         <a href="jogar.html"><span class="icon-jogar">🎮</span>Jogar</a>
         <a href="aprender.html" class="active"><span>📚</span> Aprender</a>
         <a href="eco-dicionário.html"><span>📖</span> Eco-Dicionário</a>
-        <a href="#"><span>👥</span> Sobre Nós</a>
-        <a href="#" class="btn-apoio"><span>💚</span> Apoie o Projecto</a>
+        <a href="#" onclick="showMaintenanceMessage(); return false;"><span>👥</span> Sobre Nós</a>
+        <a href="https://wa.me/+244925430567" class="btn-apoio"><span>💚</span> Apoie o Projecto</a>
     </nav>
 
 </header>
@@ -47,43 +47,43 @@
 
     <div class="lc-grid">
 
-        <a class="lc-card" href="modulo1.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">📘</span>
             <h3>MÓDULO 1</h3>
             <p>Fundamentos da Educação Ambiental</p>
         </a>
 
-        <a class="lc-card" href="modulo2.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">🌍</span>
             <h3>MÓDULO 2</h3>
             <p>Componentes do Meio Ambiente</p>
         </a>
 
-        <a class="lc-card" href="modulo3.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">⚠️</span>
             <h3>MÓDULO 3</h3>
             <p>Problemas Ambientais Actuais</p>
         </a>
 
-        <a class="lc-card" href="modulo4.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">🌿</span>
             <h3>MÓDULO 4</h3>
             <p>Ecologia e Sustentabilidade</p>
         </a>
 
-        <a class="lc-card" href="modulo5.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">🛠️</span>
             <h3>MÓDULO 5</h3>
             <p>Instrumentos de Gestão Ambiental</p>
         </a>
 
-        <a class="lc-card" href="modulo6.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">🌱</span>
             <h3>MÓDULO 6</h3>
             <p>Educação Ambiental Prática</p>
         </a>
 
-        <a class="lc-card" href="modulo7.html">
+        <a class="lc-card" href="#" onclick="showMaintenanceMessage(); return false;">
             <span class="lc-icon">🌍</span>
             <h3>MÓDULO 7</h3>
             <p>Temas Ambientais Avançados</p>
@@ -157,7 +157,7 @@
     <h4>Contacto</h4>
     <ul>
         <li>
-            📧 <a href="mailto:info@ecoquizangola.ao">info@ecoquizangola.ao</a>
+            📧 <a href="mailto:petilsonseculo8@gmail.com ">petilsonseculo8@gmail.com </a>
         </li>
         <li>
             📞 <a href="tel:+244925430567">+244 925 430 567</a>
@@ -202,8 +202,17 @@
         </div>
     </div>
 </div>
+<!-- Popup de Manutenção -->
+<div id="maintenancePopup" class="popup-overlay">
+    <div class="popup-box">
+        <h2>🚧 Em Manutenção</h2>
+        <p>Esta seção encontra-se em manutenção.<br>Por agora, você pode se divertir em <strong>"Jogar"</strong> ou descobrir mais sobre ambiente no <strong>"Eco-Dicionário"</strong>!</p>
+        <button id="popupClose">OK</button>
+    </div>
+</div>
 
 <script src="ecobot-db.js"></script>
 <script src="menu.js"></script>
+<script src="manutenção.js"></script>
 </body>
 </html>
