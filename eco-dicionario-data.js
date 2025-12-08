@@ -166,7 +166,7 @@ const ecoTerms = [
 { t: "Regulamentação Ambiental", d: "Conjunto de leis, decretos, resoluções e normas que visam proteger o meio ambiente e controlar as atividades potencialmente poluidoras." },
 { t: "Rejeito", d: "Resíduo sólido que, após esgotadas todas as possibilidades de tratamento e recuperação (reciclagem), não apresenta outra opção que não seja a disposição final." },
 { t: "Remediação", d: "Ações realizadas para limpar ou descontaminar solos, águas subterrâneas ou outras mídias afetadas por poluentes." },
-{ t: "Reserva Legal (RL)", d: "Área de um imóvel rural que deve ser mantida com cobertura de vegetação nativa, conforme o Código Florestal Brasileiro." },
+{ t: "Reserva Legal (RL)", d: "Área de um imóvel rural que deve ser mantida com cobertura de vegetação nativa." },
 { t: "Restauro Ecológico", d: "Processo de auxiliar a recuperação de um ecossistema que foi degradado, danificado ou destruído, buscando retornar à sua condição original." },
 { t: "Risco Ambiental", d: "Probabilidade de ocorrer um evento adverso que cause impacto negativo sobre o meio ambiente ou a saúde humana." },
 { t: "Sanidade Ambiental", d: "Conjunto de ações que visam garantir a saúde humana em relação aos fatores ambientais, como água, solo e ar." },
@@ -431,7 +431,6 @@ const ecoTerms = [
 { t: "Participação Pública", d: "Envolvimento de cidadãos e grupos sociais na tomada de decisões ambientais (ex: audiências públicas para licenciamento)." },
 { t: "Percepção Ambiental", d: "Como os indivíduos e grupos sociais interpretam, sentem e avaliam o seu meio ambiente e os problemas ecológicos." },
 { t: "Plano de Contigência", d: "Documento que estabelece os procedimentos e recursos necessários para responder rapidamente a um evento de crise ou desastre (ex: vazamento de óleo)." },
-{ t: "Política Nacional de Resíduos Sólidos (PNRS)", d: "Lei brasileira (12.305/2010) que estabelece os princípios, objetivos e instrumentos para a gestão e o manejo de resíduos sólidos." },
 { t: "Poluição Transfronteiriça", d: "Poluição que se origina em um país, mas cujos efeitos adversos são sentidos em outro (ex: chuva ácida, transporte de poluentes pelo ar)." },
 { t: "Previsão de Tempo", d: "Uso de modelos atmosféricos para prever as condições meteorológicas (temperatura, precipitação, vento) em um futuro próximo." },
 { t: "Princípio do Poluidor Pagador", d: "Princípio jurídico que responsabiliza o agente causador da poluição pelos custos de prevenção, reparação e controle dos danos ambientais." },
@@ -947,6 +946,101 @@ const ecoTerms = [
 { t: "Relação Dose-Resposta", d: "Princípio da toxicologia que descreve a relação entre a quantidade de uma substância (dose) à qual um organismo é exposto e o efeito (resposta) resultante." },
 { t: "Resíduos Sólidos Urbanos (RSU)", d: "Resíduos resultantes das atividades domésticas, comerciais e de serviços, que são gerados nas áreas urbanas (lixo urbano)." },
 { t: "Serviços de Utilidade Pública (Ambientais)", d: "Serviços essenciais fornecidos à população, como abastecimento de água, saneamento, coleta de resíduos e energia elétrica." },
+
+ { t: "Imbondeiro (Baobá)", d: "Árvore monumental de tronco largo e copa reduzida, considerada símbolo da resistência da natureza em Angola. O imbondeiro armazena grandes quantidades de água em seu tronco, sobrevivendo a longos períodos de seca. É usado para alimentação, medicina tradicional e como abrigo natural para comunidades rurais." 
+  },
+  {  t: "Múcua", d: "Fruto do imbondeiro, de polpa seca e ácida, muito rico em vitamina C e fibras. É consumido em sumos, doces e farinhas, sendo parte importante da dieta tradicional angolana. Além do valor nutricional, possui usos medicinais, como no tratamento de febres e problemas digestivos." 
+  },
+  { t: "Welwitschia mirabilis", d: "Planta endêmica do deserto do Namibe, conhecida mundialmente por sua longevidade extraordinária. Vive centenas ou até milhares de anos com apenas duas folhas que crescem continuamente. É considerada um 'fóssil vivo' e um dos símbolos da biodiversidade angolana." 
+  },
+  {  t: "Maboque", d: "Fruto silvestre de sabor adocicado, encontrado em várias regiões de Angola. É consumido fresco ou em sumos e tem importância cultural, sendo associado a tradições rurais. Além de alimento, o maboque é usado em práticas medicinais locais." 
+  },
+  { t: "Quitoco", d: "Fruto pequeno e ácido, típico de zonas rurais angolanas. É usado tanto na alimentação como na medicina tradicional, especialmente para problemas digestivos. Representa a diversidade de frutos silvestres que sustentam comunidades locais." 
+  },
+{ t: "Palanca Negra Gigante",     d: "Antílope endêmico de Angola, considerado um dos animais mais raros e emblemáticos do mundo. Vive principalmente nas províncias de Malanje e Bié. É símbolo nacional e está em perigo crítico de extinção devido à caça e perda de habitat. Sua preservação é prioridade em programas de conservação." 
+  },
+  {   t: "Mangusto Angolano", d: "Pequeno mamífero carnívoro que habita savanas e florestas angolanas. Alimenta-se de insetos e pequenos vertebrados, desempenhando papel importante no equilíbrio ecológico. É conhecido pela agilidade e comportamento social em grupos." 
+  },
+  {    t: "Papagaio Cinzento",    d: "Ave nativa das florestas angolanas, famosa pela inteligência e capacidade de imitar sons humanos. É muito valorizada culturalmente, mas sofre ameaça devido ao tráfico ilegal. Tem papel ecológico relevante na dispersão de sementes." 
+  },
+  { t: "Cajú", d: "Fruto do cajueiro, cultivado em várias províncias angolanas. Produz a castanha de caju, altamente nutritiva e exportada, além da polpa usada em sumos e doces. É uma cultura agrícola importante para a economia e segurança alimentar." 
+  },
+  { t: "Ginguba (Amendoim)", d: "Leguminosa cultivada em Angola, base de muitos pratos tradicionais como a 'moamba de ginguba'. É fonte de proteína vegetal e energia, além de ter valor cultural e econômico. O cultivo da ginguba é essencial para comunidades rurais." 
+  },
+
+  { t: "Rio Kwanza", d: "Principal rio de Angola, com cerca de 960 km de extensão. Nasce no Planalto do Bié e desagua no Oceano Atlântico. É vital para abastecimento de água, pesca, agricultura e geração de energia hidroelétrica. Também possui grande importância histórica e cultural." 
+  },
+  { t: "Rio Cunene", d: "Rio que marca parte da fronteira entre Angola e Namíbia. É essencial para comunidades locais e para a biodiversidade, sendo habitat de crocodilos e hipopótamos. O rio também é usado para irrigação e abastecimento de água." 
+  },
+
+{ t: "Rio Cubango", d: "Importante rio que nasce em Angola e segue até formar o Delta do Okavango, no Botsuana. É essencial para a biodiversidade da região, abastecimento de água e práticas agrícolas tradicionais. Também é habitat de hipopótamos, crocodilos e diversas aves aquáticas." 
+  },
+  { 
+    t: "Parque Nacional da Kissama", d: "Área protegida localizada a sul de Luanda, famosa pela reintrodução de animais como elefantes e zebras. É um dos principais destinos de ecoturismo em Angola e desempenha papel crucial na conservação da fauna e flora." 
+  },
+  { t: "Parque Nacional da Cameia", 
+    d: "Localizado na província do Moxico, é conhecido por suas planícies alagadas e rica biodiversidade. Abriga aves aquáticas e espécies endêmicas, sendo importante para a conservação de ecossistemas húmidos." 
+  },
+  { t: "Deserto do Namibe", d: "Região árida no sul de Angola, famosa pela planta endêmica Welwitschia mirabilis. Apesar das condições extremas, abriga espécies adaptadas e comunidades que dependem de práticas tradicionais de sobrevivência." 
+  },
+  { t: "Floresta do Maiombe",  d: "Localizada na província de Cabinda, é uma das florestas tropicais mais ricas em biodiversidade de Angola. Abriga gorilas, chimpanzés e diversas espécies de aves, além de ser fundamental para o equilíbrio climático." 
+  },
+  { 
+    t: "Palmeira de Dendém", d: "Espécie cultivada em Angola para produção de óleo de palma. É usada na culinária tradicional e também tem importância económica. Contudo, seu cultivo deve ser manejado de forma sustentável para evitar desmatamento." 
+  },
+  { 
+    t: "Elefante Africano", d: "Mamífero de grande porte presente em várias regiões de Angola, especialmente em parques nacionais. É uma espécie-chave para o ecossistema, mas enfrenta ameaças devido à caça ilegal e perda de habitat." 
+  },
+  { 
+    t: "Hipopótamo", d: "Animal semi-aquático encontrado em rios e lagos angolanos, como o Cunene e o Cubango. Tem papel ecológico importante, mas também pode gerar conflitos com comunidades ribeirinhas devido à sua territorialidade." 
+  },
+  { 
+    t: "Jacaré do Nilo", d: "Espécie de crocodilo encontrada em rios angolanos. É um predador de topo que ajuda a manter o equilíbrio ecológico, mas também representa risco para populações humanas próximas." 
+  }, 
+{ t: "Pesca Artesanal", d: "Prática tradicional realizada em rios, lagos e no litoral angolano. Utiliza técnicas simples e sustentáveis, sendo fonte de alimento e renda para comunidades locais. É fundamental para a segurança alimentar e preservação cultural." 
+  },
+  { 
+    t: "Agricultura de Subsistência", d: "Sistema agrícola praticado por muitas comunidades rurais angolanas, voltado para o consumo familiar. Utiliza técnicas tradicionais e depende fortemente das condições climáticas, sendo vulnerável à seca e à desertificação." 
+  },
+{   t: "Parque Nacional do Iona", d: "Maior parque nacional de Angola, localizado na província do Namibe, com cerca de 15.150 km². É caracterizado por paisagens desérticas únicas, dunas, planícies e montanhas. Abriga espécies adaptadas a condições áridas, como a planta endêmica Welwitschia mirabilis, além de antílopes, avestruzes e chacais. Criado em 1964, desempenha papel crucial na conservação da biodiversidade e possui grande potencial para ecoturismo e educação ambiental." 
+},
+{  t: "Lei de Bases do Ambiente (Lei n.º 5/98)", 
+    d: "Marco fundamental da política ambiental angolana. Define princípios gerais de proteção ambiental, gestão sustentável dos recursos naturais, participação pública e responsabilidade do Estado. Estabelece instrumentos como avaliação de impacto ambiental, licenciamento e auditorias ambientais." 
+},
+  
+{   t: "Regulamento sobre Gestão de Resíduos (Decreto Presidencial n.º 190/12)", 
+  d: "Diploma legal que define o quadro jurídico para a gestão de resíduos em Angola. Estabelece princípios e regras para a produção, segregação, acondicionamento, transporte, tratamento e deposição de resíduos sólidos, líquidos e gasosos. Classifica os resíduos em categorias (perigosos e não perigosos), determina obrigações das entidades que os manuseiam, exige licenciamento ambiental e planos de gestão, e prevê métodos de valorização e reaproveitamento. O regulamento visa reduzir os impactos ambientais e proteger a saúde pública, em conformidade com a Lei de Bases do Ambiente (Lei n.º 5/98)." 
+},
+{   t: "Decreto Presidencial n.º 117/20 (Regulamento de Avaliação de Impacto Ambiental)", 
+  d: "Diploma legal que regula os procedimentos de Avaliação de Impacto Ambiental (AIA) e o Licenciamento Ambiental em Angola. Define categorias de projetos sujeitos a avaliação, estabelece etapas como estudo de impacto, consulta pública e emissão de parecer técnico, e determina responsabilidades das entidades promotoras e do Ministério do Ambiente. O regulamento visa prevenir, mitigar ou compensar impactos negativos de empreendimentos sobre o meio ambiente, garantindo o desenvolvimento sustentável e a proteção da saúde pública." 
+},
+
+{ 
+    t: "Decreto Executivo n.º 51/04, de 23 de Julho – Avaliação de Impacte Ambiental", 
+    d: "Primeiro regulamento específico sobre Avaliação de Impacte Ambiental (AIA) em Angola. Estabelecia normas para a elaboração de estudos de impacto, consulta pública e aprovação de projetos com potencial de afetar o meio ambiente. Foi revogado pelo Decreto Presidencial n.º 117/20, que atualizou e consolidou o regime jurídico da AIA." 
+  },
+  { 
+    t: "Decreto Presidencial n.º 59/07, de 13 de Julho – Licenciamento Ambiental", 
+    d: "Definia os procedimentos de licenciamento ambiental para atividades económicas e industriais em Angola. Regulava a emissão de licenças, fiscalização e obrigações das empresas. Foi revogado pelo Decreto Presidencial n.º 117/20, que passou a integrar o licenciamento ao processo geral de Avaliação de Impacte Ambiental." 
+  },
+  {     t: "Decreto Executivo n.º 92/12, de 1 de Maio – Elaboração de Estudo de Impactes Ambientais", 
+    d: "Estabelece regras técnicas e metodológicas para a elaboração de Estudos de Impacte Ambiental (EIA). Define etapas como caracterização do projeto, análise de alternativas, identificação de impactos, medidas de mitigação e plano de monitoramento. Complementa a legislação de AIA, garantindo maior rigor científico nos estudos." 
+  },
+  { 
+    t: "Decreto Presidencial n.º 117/20, de 22 de Abril", 
+    d: "Aprova o Regulamento Geral da Avaliação de Impacte Ambiental e do Procedimento de Licenciamento Ambiental. Consolida e atualiza o regime jurídico da Avaliação de Impacte Ambiental (AIA) e do Licenciamento Ambiental. Define categorias de projetos, obriga estudos de impacto para atividades de médio e alto risco, prevê consulta pública e estabelece responsabilidades das empresas e do Estado na mitigação e compensação de impactos." 
+  },
+  { 
+    t: "Decreto Presidencial n.º 196/12, de 30 de Agosto – Plano Estratégico para a Gestão de Resíduos Urbanos (PESGRU)", 
+    d: "Plano nacional que orienta a gestão integrada de resíduos urbanos em Angola. Define metas de redução, reutilização e reciclagem, além de estratégias para modernizar sistemas de recolha e deposição final. O PESGRU busca transformar resíduos em recursos e melhorar a qualidade ambiental nas cidades." 
+  },
+  { 
+    t: "Decreto Presidencial n.º 181/14, de 28 de Julho – Estatuto Orgânico da ANR", 
+    d: "Cria e organiza a Agência Nacional de Resíduos (ANR), entidade responsável pela implementação da política de gestão de resíduos em Angola. Define competências como fiscalização, licenciamento, promoção de reciclagem e apoio técnico a municípios e empresas." 
+  },
+  {   t: "Decreto Executivo n.º 24/15, de 29 de Janeiro", 
+    d: "Regulamento do Processo de Registo e Licenciamento de Empresas de Gestão de Resíduos, Tratamento de Águas e Águas Residuais. Estabelece regras para o registo e licenciamento de empresas que atuam na gestão de resíduos, tratamento de águas e águas residuais. Define requisitos técnicos, administrativos e ambientais para operação, garantindo que estas atividades sejam realizadas de forma segura e sustentável." 
+  }
 
 ];
 
