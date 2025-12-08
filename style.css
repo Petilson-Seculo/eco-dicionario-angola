@@ -1260,7 +1260,7 @@ body {
 
 /* ======== ÁREA LISTA ROLÁVEL ======== */
 #dicListWrapper {
-    max-height: 60vh;     /* só a lista é rolável */
+    max-height: 80vh;     /* só a lista é rolável */
     overflow-y: auto;
     margin-top: 10px;
     padding-right: 10px;
@@ -1566,7 +1566,7 @@ body {
 [data-theme="dark"] .dropdown-scroll button {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.04);
-  color: var(--muted);
+  color: #000000;
 }
 
 [data-theme="dark"] .letters button:hover,
@@ -1669,9 +1669,9 @@ body {
 
 /* Botões das letras */
 [data-theme="dark"] .letters button {
-  color: #bfc9d4;
+  color: #000000;
   background: transparent;
-  border: 1px solid transparent;
+  border: 1px solid #16A34A;
 }
 
 [data-theme="dark"] .letters button:hover {
