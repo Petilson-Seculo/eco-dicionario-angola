@@ -761,21 +761,23 @@
             
             document.getElementById('app').innerHTML = `
                 <div class="jogar-header">
+		    
                     <div class="jogar-icon">🎮</div>
                     <h1 class="jogar-title">Jogar</h1>
                     <p class="jogar-subtitle">Escolhe um módulo e testa os teus conhecimentos ambientais!</p>
                 </div>
-                <div class="cards-grid" id="modules-grid"></div>
+		
+                <div class="lc-grid" id="modules-grid"></div>
             `;
 
         const grid = document.getElementById('modules-grid');
         modules.forEach(module => {
             const card = document.createElement('div');
-            card.className = 'card module-card';
+            card.className = 'lc-card';
             
             card.innerHTML = `
-                <span class="module-emoji emoji">${module.emoji}</span>
-                <div class="module-title card-title">${module.title}</div>
+                <span class="lc-icon">${module.emoji}</span>
+                <div class="card-title">${module.title}</div>
             `;
             
             if (module.id === 8) {
