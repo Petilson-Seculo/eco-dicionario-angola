@@ -786,7 +786,7 @@ body {
 /* --- Centro de Aprendizagem --- */
 
 .learning-center {
-    padding: 70px 40px;
+    padding: 5px 30px;
     background: #f5fdf7;
     text-align: center;
 }
@@ -796,12 +796,13 @@ body {
     color: #0c7426;
     font-weight: 800;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .lc-subtitle {
     color: #555;
     font-size: 1.15rem;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
 }
 
 .lc-grid {
@@ -809,7 +810,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     max-width: 1300px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 /* Cards */
@@ -825,6 +826,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
+   
+}
+.card-title { 
+    text-align: center;
 }
 
 .lc-icon {
@@ -867,6 +874,15 @@ body {
 @media (max-width: 500px) {
     .lc-grid {
         grid-template-columns: 1fr;
+    }
+    .lc-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .lc-title {
+        font-size: 1.5rem;
     }
 }
 
@@ -1145,9 +1161,12 @@ body {
 
 .jogar-container {
 
-background: #f5fdf7;
+margin: 0px 15px;
 }
 
+#modules-grid {
+padding: 0px 20px;
+}
 header {
     position: fixed;
     top: 0;
@@ -1260,7 +1279,7 @@ body {
 
 /* ======== ÁREA LISTA ROLÁVEL ======== */
 #dicListWrapper {
-    max-height: 70vh;     /* só a lista é rolável */
+    max-height: 62vh;     /* só a lista é rolável */
     overflow-y: auto;
     margin-top: 10px;
     padding-right: 10px;
@@ -2058,4 +2077,3 @@ color: white;
 [data-theme="dark"] .nossos-label {
     color: #d4d4d4;
 }
-
