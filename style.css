@@ -1328,7 +1328,7 @@ body {
     /* ------ Títulos ------ */
     .dic-title {
         font-size: 1.8rem !important;
-        margin-bottom: 4px;
+        margin: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
